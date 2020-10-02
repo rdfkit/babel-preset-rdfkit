@@ -29,7 +29,7 @@ module.exports = declare((api, options) => {
 
   if (typeof modules !== "boolean" && modules !== "auto") {
     throw new TypeError(
-      'babel-preset-airbnb only accepts `true`, `false`, or `"auto"` as the value of the "modules" option',
+      'babel-preset-rdfkit only accepts `true`, `false`, or `"auto"` as the value of the "modules" option',
     );
   }
 
