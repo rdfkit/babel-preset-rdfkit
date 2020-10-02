@@ -81,6 +81,18 @@ module.exports = declare((api, options) => {
         : null,
 
       [
+        require("babel-plugin-inline-react-svg"),
+        {
+          svgo: false,
+        },
+      ],
+      [
+        require("babel-plugin-transform-replace-object-assign"),
+        {
+          moduleSpecifier: "object.assign",
+        },
+      ],
+      [
         require("@babel/plugin-transform-template-literals"),
         {
           spec: true,
@@ -93,12 +105,27 @@ module.exports = declare((api, options) => {
       require("@babel/plugin-proposal-numeric-separator"),
       require("@babel/plugin-proposal-optional-catch-binding"),
       require("@babel/plugin-proposal-optional-chaining"),
+      require("@babel/plugin-proposal-async-generator-functions"),
+      require("@babel/plugin-proposal-decorators"),
+      require("@babel/plugin-proposal-export-namespace-from"),
+      require("@babel/plugin-proposal-export-default-from"),
+      require("@babel/plugin-proposal-do-expressions"),
+      require("@babel/plugin-proposal-function-bind"),
+      [
+        require("@babel/plugin-proposal-pipeline-operator"),
+        {
+          proposal: "minimal",
+        },
+      ],
       [
         require("@babel/plugin-proposal-object-rest-spread"),
         {
           useBuiltIns: true,
         },
       ],
+      require("@babel/plugin-syntax-dynamic-import"),
+      require("babel-plugin-styled-components"),
+      require("babel-plugin-lodash"),
       transformRuntime
         ? [
             require("@babel/plugin-transform-runtime"),
