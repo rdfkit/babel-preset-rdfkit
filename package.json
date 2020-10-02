@@ -1,6 +1,6 @@
 {
   "name": "babel-preset-rdfkit",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Developer Tools for Project rdfkit",
   "homepage": "https://rdfkit.org",
   "repository": "git@github.com:rdfkit/babel-preset-rdfkit",
