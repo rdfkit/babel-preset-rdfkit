@@ -1,0 +1,11 @@
+{
+  "root": true,
+  "extends": "rdfkit",
+  "rules": {
+    "global-require": 0,
+    "strict": ["error", "global"]
+  },
+  "parserOptions": {
+    "sourceType": "script"
+  }
+}
