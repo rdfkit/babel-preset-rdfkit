@@ -106,11 +106,14 @@ module.exports = declare((api, options) => {
       require("@babel/plugin-proposal-optional-catch-binding"),
       require("@babel/plugin-proposal-optional-chaining"),
       require("@babel/plugin-proposal-async-generator-functions"),
-      require("@babel/plugin-proposal-decorators"),
       require("@babel/plugin-proposal-export-namespace-from"),
       require("@babel/plugin-proposal-export-default-from"),
       require("@babel/plugin-proposal-do-expressions"),
       require("@babel/plugin-proposal-function-bind"),
+      [
+        require.resolve("@babel/plugin-proposal-class-properties"),
+        { loose: true },
+      ],
       [
         require("@babel/plugin-proposal-pipeline-operator"),
         {
