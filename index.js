@@ -57,50 +57,6 @@ module.exports = declare((api, options) => {
       [require("@babel/preset-react"), { development }],
     ],
     plugins: [
-      looseClasses
-        ? [
-            require("@babel/plugin-transform-classes"),
-            {
-              loose: true,
-            },
-          ]
-        : null,
-
-      removePropTypes
-        ? [
-            require("babel-plugin-transform-react-remove-prop-types"),
-            Object.assign(
-              {
-                mode: "wrap",
-                additionalLibraries: ["airbnb-prop-types"],
-                ignoreFilenames: ["node_modules"],
-              },
-              removePropTypes,
-            ),
-          ]
-        : null,
-
-      [
-        require("babel-plugin-inline-react-svg"),
-        {
-          svgo: false,
-        },
-      ],
-      [
-        require("babel-plugin-transform-replace-object-assign"),
-        {
-          moduleSpecifier: "object.assign",
-        },
-      ],
-      [
-        require("@babel/plugin-transform-template-literals"),
-        {
-          spec: true,
-        },
-      ],
-      require("@babel/plugin-transform-property-mutators"),
-      require("@babel/plugin-transform-member-expression-literals"),
-      require("@babel/plugin-transform-property-literals"),
       require("@babel/plugin-proposal-nullish-coalescing-operator"),
       require("@babel/plugin-proposal-numeric-separator"),
       require("@babel/plugin-proposal-optional-catch-binding"),
@@ -126,9 +82,39 @@ module.exports = declare((api, options) => {
           useBuiltIns: true,
         },
       ],
+      require("@babel/plugin-transform-property-mutators"),
+      require("@babel/plugin-transform-member-expression-literals"),
+      require("@babel/plugin-transform-property-literals"),
+      [
+        require("@babel/plugin-transform-template-literals"),
+        {
+          spec: true,
+        },
+      ],
+      looseClasses
+        ? [
+            require("@babel/plugin-transform-classes"),
+            {
+              loose: true,
+            },
+          ]
+        : null,
+
+      removePropTypes
+        ? [
+            require("babel-plugin-transform-react-remove-prop-types"),
+            Object.assign(
+              {
+                mode: "wrap",
+                additionalLibraries: ["airbnb-prop-types"],
+                ignoreFilenames: ["node_modules"],
+              },
+              removePropTypes,
+            ),
+          ]
+        : null,
       require("@babel/plugin-syntax-dynamic-import"),
       require("babel-plugin-styled-components"),
-      require("babel-plugin-lodash"),
       transformRuntime
         ? [
             require("@babel/plugin-transform-runtime"),
